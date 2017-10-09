@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test</title>
+    <link href="style/dist/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="style/owl.carousel.css">
+    <link rel="stylesheet" href="style/owl.theme.css">
+
+    <!--[if lt IE 9]><link href="style/styleForIe.css" rel="stylesheet" type="text/css"/><![endif]-->
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <!--[if IE]>
+<script src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+<![endif]-->
+  <script src="js/src/script.js"></script>
+  <script src="js/src/template.js"></script>
+  <script src="js/owl.carousel.js"></script>
+
+</head>
+<body>
+    <!--[if lt IE 9]>
+   <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('footer');
+   </script>
+<![endif]-->
+
+        <header class="header">
+          <div class="wrapper">
+            <a href="#" class="logo"></a>
+            <nav class="headerMenu">
+              <p  class="menu">Menu</p>
+              <ul class="menuList">
+                <li class="listItem"><a href="#">Home</a></li>
+                <li class="listItem"><a href="#totalCompanies">Total​​ Companies</a></li>
+                <li class="listItem"><a href="#main">​List​​ of ​​Companies</a></li>
+                <li class="listItem"><a href="#locationCompaties">Companies ​​by​​ Location</a></li>
+                <li class="listItem"><a href="#companionNews">News</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <div class="singUp">
+          <div class="headerSingup"><p>SingUp</p></div>
+          <form action="" method="POST">
+            <div class="singUpRow singUpRow--name">
+              <input type="text" name="name" placeholder="UserName" required>
+            </div>
+            <div class="singUpRow singUpRow--secondmame">
+              <input type="text" name="secondname" placeholder="UserSecondName" required>
+            </div>
+            <div class="singUpRow singUpRow--email">
+              <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="singUpRow singUpRow--male">
+              <select size="1" name="male" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="women">Female</option>
+                <option value="men">Male</option>
+              </select>
+            </div>
+            <div class="singUpRow singUpRow--password">
+              <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <input type="checkbox" name="ruls" id="singUpCheck" required><label for="singUpCheck">Conditions of Agreement</label>
+            <input type="submit" value="Send" class="singUpButton">
+          </form>
+        </div>
+        <div class="headerMain">
+          <div class="wrapper">
+            <div class="mainSlider"></div>
+          </div>
+        </div>
+        <div id="totalCompanies" class="totalCompanies"><span class="companyCounter"></span></div>
+        <main id="main" class="main">
+          <div class="wrapper">
+            <div class="listOfCompanies">
+              <select id="selectCompanies" multiple>
+              <script type="text/html" id="template">
+                  <% for(var k = 0; k < data.length; k++ ) { %>
+                    <option class="company" id="<%= data[k].name %>" value='<%= data[k].name %>'><%= data[k].name %></option>
+                  <% }  %>
+              </script>
+              </select>
+            </div>
+            <div class="wrapperPartnersCompanies">
+            <div class="buttonSort">
+              <p>Sort by:</p>
+              <button class = "partnersSortName">Name &#11015;</button>
+              <button class = "partnersSortPersent">% &#11015;</button>
+            </div>
+            <div class="partnersCompaties">
+                <ul id="soort" class="ulList">
+                  <script type="text/html" id="template2">
+                  <% for(var i = 0; i < data.length;i++ ) { %>
+                  <li class = "data"><span class="persent"> <%= data[i].value %></span> <span class="line"></span> <span class="name"><%= data[i].name %></span></li>
+                  <% } %>
+                  </script>
+                </ul>
+            </div>
+          </div>
+        </main>
+        <div id="locationCompaties" class="locationCompaties">
+          <div id="container">
+            <canvas id="chart" width="600" height="500"></canvas>
+            <table id="chartData" class="locat"></table>
+          </div>
+          <div class="listOfLocation">
+              <ul class="locList">
+                <script type="text/html" id="template3">
+                <% for(var i = 0; i < data.length; i++ ) { %>
+                <li><%= data[i].name %></li>
+                <% } %>
+                </script>
+              </ul>
+          </div>
+      </div>
+        <div id="companionNews" class="companionNews">
+          <div class="results"></div>
+          <div class="wrapper">
+           <div class="news">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+              </div>
+            </div>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+</body>
+
+</html>
